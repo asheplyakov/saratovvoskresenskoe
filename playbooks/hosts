@@ -1,0 +1,2 @@
+[jekyll]
+localhost ansible_connection=local

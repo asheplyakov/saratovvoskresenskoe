@@ -1,0 +1,36 @@
+---
+
+- set_fact:
+    ruby_packages:
+      - build-essential
+      - ruby2.5
+      - ruby2.5-dev
+  when:
+    - ansible_os_family == 'Debian'
+
+- name: install ruby and co
+  package: name={{ item }} state=present
+  with_items: "{{ ruby_packages }}"
+  become: true
+
+- set_fact:
+    user_bindir: "{{ lookup('env', 'HOME') }}/bin"
+
+- name: ensure user home directory exists
+  file:
+    dest: "{{ user_bindir }}"
+    state: directory
+    mode: 0755
+
+- name: install bundler
+  command: >
+    gem install --user-install --bindir "{{ user_bindir }}" bundler
+
+- name: install jekyll and dependencies
+  command: >
+    {{ user_bindir }}/bundle install --path vendor/bundle --jobs {{ ansible_processor_vcpus }}
+  args:
+    chdir: ..
+
+
+
