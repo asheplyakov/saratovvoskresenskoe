@@ -1,3 +1,18 @@
+collections:
+  sectors:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "sectors"
+    values:
+      layout: "sector"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
 exclude:
   - playbooks
   - vendor

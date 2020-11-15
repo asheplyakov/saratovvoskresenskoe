@@ -1,0 +1,11 @@
+---
+layout: default
+---
+
+<h1>{{ page.name }}</h1>
+
+<ul>
+	{% for person in page.people %}
+	<li>{{ person.name }}, {{ person.birthday }} -- {{ person.deathday }}</li>
+	{% endfor %}
+</ul>

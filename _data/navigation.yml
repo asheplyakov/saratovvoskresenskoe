@@ -1,4 +1,4 @@
-- name: Home
+- name: В начало
   link: /
-- name: About
-  link: /about.html
+- name: Перечень могил
+  link: /sectors.html
