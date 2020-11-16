@@ -1,3 +1,6 @@
+baseurl:
+  /saratovvoskresenskoe
+
 collections:
   sectors:
     output: true

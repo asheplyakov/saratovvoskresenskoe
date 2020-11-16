@@ -6,6 +6,6 @@ title: Перечень могил
 
 <ul>
  {% for sector in site.sectors %}
- <li><a href="{{ sector.url }}">{{ sector.name }}</a></li>
+ <li><a href="{{ site.baseurl }}{{ sector.url }}">{{ sector.name }}</a></li>
  {% endfor %}
 </ul>
